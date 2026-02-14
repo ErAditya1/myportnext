@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: "Durgesh Kumar | Full Stack Developer (.NET & MERN)",
     template: "%s | Durgesh Kumar",
   },
-  
+
   verification: {
     google: "google3afd91eb287e8099",
   },
@@ -120,7 +120,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-IN" suppressHydrationWarning>
+    <html lang="en-IN" className="dark" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
 
         {/* ✅ STRUCTURED DATA — EXTREMELY IMPORTANT FOR SEO */}
@@ -156,8 +156,8 @@ export default function RootLayout({
 
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />
