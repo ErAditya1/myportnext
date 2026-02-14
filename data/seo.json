@@ -1,0 +1,15 @@
+{
+  "siteUrl": "https://your-portfolio-domain.com",
+  "siteName": "Durgesh Kumar Portfolio",
+  "defaultTitle": "Durgesh Kumar | Full Stack Developer",
+  "titleTemplate": "%s | Durgesh Kumar",
+  "defaultDescription": "Full Stack Developer portfolio showcasing scalable web apps, case studies, and engineering-focused solutions.",
+  "defaultOgImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+  "keywords": [
+    "Full Stack Developer",
+    "Software Developer Portfolio",
+    "Next.js Developer",
+    "React Developer",
+    "Node.js Developer"
+  ]
+}

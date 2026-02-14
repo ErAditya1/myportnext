@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.nav-link {
+  @apply text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300 transition;
+}
+
+.mobile-link {
+  @apply block text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300 transition;
+}
