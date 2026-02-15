@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import { ThemeProvider } from "next-themes";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 // ✅ Fonts
@@ -88,7 +89,7 @@ description:
     type: "website",
     images: [
       {
-        url: "/og-image.png", // put inside public folder
+        url: "/durgeshimage.jpg.png", // put inside public folder
         width: 1200,
         height: 630,
         alt: "Durgesh Kumar Portfolio",
@@ -101,7 +102,7 @@ description:
     title: "Durgesh Kumar | Full Stack Developer",
     description:
       "Portfolio showcasing projects, engineering skills, and modern web development expertise.",
-    images: ["/og-image.png"],
+    images: ["/durgeshimage.jpg"],
   },
 
   alternates: {
@@ -123,7 +124,7 @@ export default function RootLayout({
     <html lang="en-IN" className="dark" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
 
-        {/* ✅ STRUCTURED DATA — EXTREMELY IMPORTANT FOR SEO */}
+ 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -162,6 +163,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <SpeedInsights />
           <Footer />
         </ThemeProvider>
 
