@@ -43,6 +43,7 @@ description:
   "Durgesh Kumar is a highly skilled Full Stack Developer specializing in ASP.NET Core, .NET, React, Next.js, and MERN Stack. Recognized for building scalable, secure, and production-ready web applications. Explore the portfolio of Durgesh Kumar, view innovative projects, and connect for freelance, remote, or full-time opportunities.",
 
  keywords: [
+  "software developer barabanki",
   "Durgesh Kumar",
   "Durgesh Kumar Full Stack Developer",
   "ASP.NET Developer Durgesh Kumar",
@@ -89,7 +90,7 @@ description:
     type: "website",
     images: [
       {
-        url: "/durgeshimage.jpg.png", // put inside public folder
+        url: "/durgeshimage.jpg", // put inside public folder
         width: 1200,
         height: 630,
         alt: "Durgesh Kumar Portfolio",
