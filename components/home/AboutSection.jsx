@@ -59,7 +59,7 @@ const AboutSection = () => {
           >
             <Image
               src={profileImg}
-              alt="Durgesh Kumar - Full Stack Developer"
+              alt="Durgesh Kumar Software Developer Barabanki India"
               width={320}
               height={320}
               priority
