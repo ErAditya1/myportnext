@@ -57,6 +57,17 @@ description:
   "Durgesh Kumar Portfolio",
   "Full Stack Developer in India Durgesh Kumar",
   "Remote Developer Durgesh Kumar",
+  "Durgesh Kumar",
+  "Durgesh Kumar Barabanki",
+  "software developer barabanki",
+  "full stack developer barabanki",
+  "web developer barabanki",
+  "ASP.NET developer barabanki",
+  "MERN stack developer barabanki",
+  "software engineer barabanki Uttar Pradesh",
+  "best developer in barabanki",
+  "freelance developer barabanki",
+  "Durgesh Kumar portfolio",
 ],
 
   authors: [

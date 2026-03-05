@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block admin and private sections
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://officialdurgesh.vercel.app/sitemap.xml

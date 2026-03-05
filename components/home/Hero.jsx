@@ -79,13 +79,13 @@ const Hero = () => {
           {/* BUTTONS */}
           <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
 
-            <Link
+            <a
               href="/Durgesh_Kumar_FullStack_Developer_Resume.pdf"
               download
               className="bg-emerald-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-emerald-700 transition"
             >
               Download Resume
-            </Link>
+            </a>
 
             <Link
               href="/contact"

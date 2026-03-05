@@ -147,7 +147,7 @@ const AboutSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.4 }}
           >
-            View My Projects 🚀
+            View My Projects 
           </motion.a>
         </div>
       </div>

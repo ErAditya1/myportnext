@@ -88,7 +88,7 @@ const ContactSection = () => {
               </div>
               <div className="flex items-center gap-3 rounded-lg bg-gray-100 dark:bg-gray-800 px-4 py-3">
                 <FaPhoneAlt className="text-emerald-600 dark:text-emerald-400" />
-                <span>8887507049</span>
+                <span>6393381887</span>
               </div>
             </div>
           </div>

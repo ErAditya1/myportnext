@@ -41,30 +41,37 @@ export default function Home() {
 
   // ✅ PERSON SCHEMA
   const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Durgesh Kumar || Er Durgesh Kumar",
-    jobTitle: "Full Stack Developer",
-    url: "https://officialdurgesh.vercel.app",
-    image: "https://res.cloudinary.com/durgeshkumar/image/upload/v1771091150/finalsecond_t21tkd.png",
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Durgesh Kumar",
+  jobTitle: "Full Stack Developer",
+  url: "https://officialdurgesh.vercel.app",
+  image: "https://res.cloudinary.com/durgeshkumar/image/upload/v1771091150/finalsecond_t21tkd.png",
 
-    sameAs: [
-      "https://github.com/DurgeshKumar143",
-      "https://www.linkedin.com/in/getdurgeshkumar",
-    ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Barabanki",
+    addressRegion: "Uttar Pradesh",
+    addressCountry: "India"
+  },
 
-    knowsAbout: [
-      "ASP.NET Core",
-      "MERN Stack",
-      "React",
-      "Next.js",
-      "Node.js",
-      "SQL Server",
-      "MongoDB",
-      "REST APIs",
-      "Full Stack Development",
-    ],
-  };
+  sameAs: [
+    "https://github.com/DurgeshKumar143",
+    "https://www.linkedin.com/in/getdurgeshkumar",
+  ],
+
+  knowsAbout: [
+    "ASP.NET Core",
+    "MERN Stack",
+    "React",
+    "Next.js",
+    "Node.js",
+    "SQL Server",
+    "MongoDB",
+    "REST APIs",
+    "Full Stack Development",
+  ],
+};
 
 
   // ✅ WEBSITE SCHEMA (ADVANCED SEO)
@@ -81,12 +88,102 @@ export default function Home() {
     },
   };
 
+  // ✅ LOCAL SEO SCHEMA
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Durgesh Kumar - Software Developer",
+  image: "https://officialdurgesh.vercel.app/durgeshimage.jpg",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Barabanki",
+    addressRegion: "Uttar Pradesh",
+    addressCountry: "India"
+  },
+  url: "https://officialdurgesh.vercel.app",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+
+    {
+      "@type": "Question",
+      "name": "Who is Durgesh Kumar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durgesh Kumar is a Full Stack Developer based in Barabanki, Uttar Pradesh, India. He specializes in ASP.NET Core, MERN stack, React, Next.js, and scalable web application development."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What technologies does Durgesh Kumar use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durgesh Kumar works with ASP.NET Core, .NET, React, Next.js, Node.js, MongoDB, SQL Server, and modern full stack development tools."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Where is Durgesh Kumar located?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durgesh Kumar is a software developer based in Barabanki, Uttar Pradesh, India and works with clients remotely worldwide."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Can I hire Durgesh Kumar for freelance projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Durgesh Kumar is available for freelance, remote, and full-time software development opportunities."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What type of applications does Durgesh Kumar build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durgesh Kumar builds scalable web applications, REST APIs, enterprise systems, dashboards, and full stack applications using ASP.NET Core and MERN stack."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How can I contact Durgesh Kumar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can contact Durgesh Kumar through the contact form on his portfolio website or through LinkedIn and GitHub."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Does Durgesh Kumar work remotely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Durgesh Kumar works remotely with clients globally and is open to remote software development opportunities."
+      }
+    }
+
+  ]
+};
+
 
   return (
     <>
       {/* Structured Data */}
       <StructuredData data={personSchema} />
       <StructuredData data={websiteSchema} />
+
+      <StructuredData data={localBusinessSchema}  />
+
+      <StructuredData data={faqSchema} />
 
       <main id="main-content">
         <Hero />
