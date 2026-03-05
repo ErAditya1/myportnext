@@ -19,14 +19,17 @@ const Hero = () => {
             transition={{ duration: 1 }}
             className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-gray-200 dark:border-gray-700"
           >
-            <Image
-              src="https://res.cloudinary.com/durgeshkumar/image/upload/v1771091150/finalsecond_t21tkd.png"
-              alt="Durgesh Kumar Full Stack Developer"
-              fill
-              priority
-              sizes="(max-width:768px) 220px, (max-width:1024px) 260px, 320px"
-              className="object-cover"
-            />
+           import Image from "next/image";
+
+<Image
+  src="https://res.cloudinary.com/durgeshkumar/image/upload/f_auto,q_auto/v1771091150/finalsecond_t21tkd.png"
+  alt="Durgesh Kumar Full Stack Developer from Barabanki India"
+  fill
+  priority
+  sizes="(max-width: 768px) 220px, (max-width: 1024px) 260px, 320px"
+  quality={85}
+  className="object-cover"
+/>
           </motion.div>
         </div>
 
