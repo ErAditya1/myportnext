@@ -17,7 +17,7 @@ const getProject = async (id: string) => {
   return project;
 };
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const project = await getProject(id);
 
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-const ProjectDetailsPage = async ({ params }: { params: { id: string } }) => {
+const ProjectDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const project = await getProject(id);
 

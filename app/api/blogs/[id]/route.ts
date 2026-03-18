@@ -3,10 +3,12 @@ import dbConnect from '@/lib/mongodb';
 import Blog from '@/models/Blog';
 import { uploadToCloudinary } from '@/lib/cloudinary';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   try {
     await dbConnect();
-    const blog = await Blog.findById(params.id);
+    const blog = await Blog.findById(id);
     if (!blog) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     return NextResponse.json(blog);
   } catch (error: unknown) {
@@ -15,7 +17,9 @@ export async function GET(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   try {
     await dbConnect();
     const contentType = request.headers.get('content-type') || '';
@@ -59,7 +63,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
       updateData = await request.json();
     }
 
-    const blog = await Blog.findByIdAndUpdate(params.id, updateData, { new: true, runValidators: true });
+    const blog = await Blog.findByIdAndUpdate(id, updateData, { new: true, runValidators: true });
     if (!blog) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     return NextResponse.json(blog);
   } catch (error: unknown) {
@@ -69,10 +73,12 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   try {
     await dbConnect();
-    const blog = await Blog.findByIdAndDelete(params.id);
+    const blog = await Blog.findByIdAndDelete(id);
     if (!blog) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     return NextResponse.json({ message: 'Deleted successfully' });
   } catch (error: unknown) {

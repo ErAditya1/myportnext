@@ -10,7 +10,7 @@ const getPost = async (slug: string) => {
   return post;
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPost(slug);
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-const BlogDetailsPage = async ({ params }: { params: { slug: string } }) => {
+const BlogDetailsPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const post = await getPost(slug);
 
