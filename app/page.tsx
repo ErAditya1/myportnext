@@ -191,8 +191,8 @@ const faqSchema = {
         <SkillsSection />
         <ServicesSection />
         <ProjectSection />
-        {/* <BlogSection />
-        <RecruiterCTA /> */}
+        <BlogSection />
+        <RecruiterCTA />
         <ContactSection />
       </main>
     </>

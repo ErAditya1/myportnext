@@ -6,6 +6,7 @@ import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 import { ThemeProvider } from "next-themes";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import AnalyticsTracker from "../components/analytics/AnalyticsTracker";
 
 
 // ✅ Fonts
@@ -173,6 +174,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <AnalyticsTracker />
           <Navbar />
           {children}
           <SpeedInsights />

@@ -1,0 +1,74 @@
+﻿.next/dev/types/validator.ts(144,31): error TS2344: Type 'typeof import("D:/ImpProject/myportnext/app/api/blogs/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/blogs/[id]">'.
+  Types of property 'GET' are incompatible.
+    Type '(request: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<any>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+.next/dev/types/validator.ts(171,31): error TS2344: Type 'typeof import("D:/ImpProject/myportnext/app/api/projects/[id]/route")' does not satisfy the constraint 'RouteHandlerConfig<"/api/projects/[id]">'.
+  Types of property 'GET' are incompatible.
+    Type '(request: Request, { params }: { params: { id: string; }; }) => Promise<NextResponse<any>>' is not assignable to type '(request: NextRequest, context: { params: Promise<{ id: string; }>; }) => void | Response | Promise<void | Response>'.
+      Types of parameters '__1' and 'context' are incompatible.
+        Type '{ params: Promise<{ id: string; }>; }' is not assignable to type '{ params: { id: string; }; }'.
+          Types of property 'params' are incompatible.
+            Property 'id' is missing in type 'Promise<{ id: string; }>' but required in type '{ id: string; }'.
+app/admin/blogs/create/page.tsx(10,41): error TS2307: Cannot find module 'react-quill-new' or its corresponding type declarations.
+app/admin/blogs/create/page.tsx(139,15): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: {}, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ theme: string; value: string; onChange: Dispatch<SetStateAction<string>>; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'theme' does not exist on type 'IntrinsicAttributes'.
+  Overload 2 of 2, '(props: {}): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | Component<...> | null | undefined', gave the following error.
+    Type '{ theme: string; value: string; onChange: Dispatch<SetStateAction<string>>; className: string; }' is not assignable to type 'IntrinsicAttributes'.
+      Property 'theme' does not exist on type 'IntrinsicAttributes'.
+app/blog/[slug]/page.tsx(6,24): error TS7006: Parameter 'slug' implicitly has an 'any' type.
+app/blog/[slug]/page.tsx(12,42): error TS7031: Binding element 'params' implicitly has an 'any' type.
+app/blog/[slug]/page.tsx(39,34): error TS7031: Binding element 'params' implicitly has an 'any' type.
+app/blog/[slug]/page.tsx(90,30): error TS7006: Parameter 'tag' implicitly has an 'any' type.
+app/blog/[slug]/page.tsx(90,35): error TS7006: Parameter 'i' implicitly has an 'any' type.
+app/blog/page.tsx(59,48): error TS7006: Parameter 'tag' implicitly has an 'any' type.
+app/blog/page.tsx(59,53): error TS7006: Parameter 'i' implicitly has an 'any' type.
+app/projects/[id]/page.tsx(9,27): error TS7006: Parameter 'id' implicitly has an 'any' type.
+app/projects/[id]/page.tsx(14,15): error TS2353: Object literal may only specify known properties, and '_id' does not exist in type '{ slug: any; }'.
+app/projects/[id]/page.tsx(20,42): error TS7031: Binding element 'params' implicitly has an 'any' type.
+app/projects/[id]/page.tsx(48,37): error TS7031: Binding element 'params' implicitly has an 'any' type.
+app/projects/[id]/page.tsx(96,43): error TS7006: Parameter 'tech' implicitly has an 'any' type.
+app/projects/[id]/page.tsx(159,43): error TS7006: Parameter 'img' implicitly has an 'any' type.
+app/projects/[id]/page.tsx(159,48): error TS7006: Parameter 'i' implicitly has an 'any' type.
+components/admin/AdminBlogClient.tsx(13,28): error TS7031: Binding element 'initialPosts' implicitly has an 'any' type.
+components/admin/AdminBlogClient.tsx(18,25): error TS7006: Parameter 'event' implicitly has an 'any' type.
+components/admin/AdminBlogClient.tsx(37,15): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+components/admin/AdminBlogClient.tsx(42,29): error TS7006: Parameter 'id' implicitly has an 'any' type.
+components/admin/AdminBlogClient.tsx(48,15): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+components/admin/AdminBlogClient.tsx(48,37): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/admin/AdminBlogClient.tsx(104,25): error TS7006: Parameter 'post' implicitly has an 'any' type.
+components/admin/AdminProjectsClient.tsx(14,32): error TS7031: Binding element 'initialProjects' implicitly has an 'any' type.
+components/admin/AdminProjectsClient.tsx(19,25): error TS7006: Parameter 'event' implicitly has an 'any' type.
+components/admin/AdminProjectsClient.tsx(41,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+components/admin/AdminProjectsClient.tsx(46,32): error TS7006: Parameter 'id' implicitly has an 'any' type.
+components/admin/AdminProjectsClient.tsx(52,18): error TS7006: Parameter 'prev' implicitly has an 'any' type.
+components/admin/AdminProjectsClient.tsx(52,40): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/admin/AdminProjectsClient.tsx(115,28): error TS7006: Parameter 'project' implicitly has an 'any' type.
+components/common/Navbar.tsx(23,33): error TS7006: Parameter 'event' implicitly has an 'any' type.
+components/common/Navbar.tsx(24,47): error TS2339: Property 'contains' does not exist on type 'never'.
+components/home/BlogSection.tsx(6,31): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/home/BlogSection.tsx(20,23): error TS7006: Parameter 'post' implicitly has an 'any' type.
+components/home/ContactSection.tsx(26,25): error TS7006: Parameter 'e' implicitly has an 'any' type.
+components/home/ContactSection.tsx(31,31): error TS7006: Parameter 'e' implicitly has an 'any' type.
+components/home/ContactSection.tsx(206,23): error TS7031: Binding element 'href' implicitly has an 'any' type.
+components/home/ContactSection.tsx(206,29): error TS7031: Binding element 'icon' implicitly has an 'any' type.
+components/home/ContactSection.tsx(206,35): error TS7031: Binding element 'color' implicitly has an 'any' type.
+components/project/ProjectCard.tsx(7,24): error TS7031: Binding element 'project' implicitly has an 'any' type.
+components/project/ProjectCard.tsx(48,35): error TS7006: Parameter 'metric' implicitly has an 'any' type.
+components/project/ProjectCard.tsx(48,43): error TS7006: Parameter 'i' implicitly has an 'any' type.
+components/project/ProjectCard.tsx(61,38): error TS7006: Parameter 'tech' implicitly has an 'any' type.
+components/project/ProjectCard.tsx(61,44): error TS7006: Parameter 'index' implicitly has an 'any' type.
+components/seo/StructuredData.tsx(1,27): error TS7031: Binding element 'data' implicitly has an 'any' type.
+lib/auth.ts(9,15): error TS7006: Parameter 'value' implicitly has an 'any' type.
+lib/auth.ts(12,21): error TS7006: Parameter 'payload' implicitly has an 'any' type.
+lib/auth.ts(18,22): error TS7006: Parameter 'token' implicitly has an 'any' type.
+lib/content-store.ts(6,29): error TS7006: Parameter 'fileName' implicitly has an 'any' type.
+lib/content-store.ts(12,30): error TS7006: Parameter 'fileName' implicitly has an 'any' type.
+lib/content-store.ts(12,40): error TS7006: Parameter 'payload' implicitly has an 'any' type.
+lib/content-store.ts(18,37): error TS7006: Parameter 'projects' implicitly has an 'any' type.
+lib/content-store.ts(22,34): error TS7006: Parameter 'blogs' implicitly has an 'any' type.
+lib/slug.ts(1,24): error TS7006: Parameter 'value' implicitly has an 'any' type.
