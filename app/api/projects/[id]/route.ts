@@ -3,10 +3,12 @@ import dbConnect from '@/lib/mongodb';
 import Project from '@/models/Project';
 import { uploadToCloudinary } from '@/lib/cloudinary';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   try {
     await dbConnect();
-    const project = await Project.findById(params.id);
+    const project = await Project.findById(id);
     if (!project) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     return NextResponse.json(project);
   } catch (error: unknown) {
@@ -15,7 +17,9 @@ export async function GET(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   try {
     await dbConnect();
     const contentType = request.headers.get('content-type') || '';
@@ -66,7 +70,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
       updateData = await request.json();
     }
 
-    const project = await Project.findByIdAndUpdate(params.id, updateData, { new: true, runValidators: true });
+    const project = await Project.findByIdAndUpdate(id, updateData, { new: true, runValidators: true });
     if (!project) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     return NextResponse.json(project);
   } catch (error: unknown) {
@@ -76,10 +80,12 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   try {
     await dbConnect();
-    const project = await Project.findByIdAndDelete(params.id);
+    const project = await Project.findByIdAndDelete(id);
     if (!project) return NextResponse.json({ error: 'Not found' }, { status: 404 });
     return NextResponse.json({ message: 'Deleted successfully' });
   } catch (error: unknown) {

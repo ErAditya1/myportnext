@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
-import Hero from "../components/home/Hero";
-import AboutSection from "../components/home/AboutSection";
-import SkillsSection from "../components/home/SkillsSection";
-import ServicesSection from "../components/home/ServicesSection";
-import ProjectSection from "../components/project/ProjectsSection";
-import ContactSection from "../components/home/ContactSection";
-import BlogSection from "../components/home/BlogSection";
-import RecruiterCTA from "../components/home/RecruiterCTA";
-import StructuredData from "../components/seo/StructuredData";
+import Hero from "@/components/home/Hero";
+import AboutSection from "@/components/home/AboutSection";
+import SkillsSection from "@/components/home/SkillsSection";
+import ServicesSection from "@/components/home/ServicesSection";
+import ProjectSection from "@/components/project/ProjectsSection";
+import ContactSection from "@/components/home/ContactSection";
+import BlogSection from "@/components/home/BlogSection";
+import RecruiterCTA from "@/components/home/RecruiterCTA";
+import StructuredData from "@/components/seo/StructuredData";
 
 
 // ✅ HOMEPAGE SEO (VERY IMPORTANT)

@@ -1,7 +1,7 @@
-import AboutSection from "../../components/home/AboutSection";
+import AboutSection from "@/components/home/AboutSection";
  
 
-import StructuredData from "../../components/seo/StructuredData"
+import StructuredData from "@/components/seo/StructuredData"
 
 
 
