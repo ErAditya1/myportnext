@@ -1,6 +1,7 @@
 import dbConnect from "@/lib/mongodb";
 import Project from "@/models/Project";
 import ProjectCard from "./ProjectCard";
+import { motion } from "framer-motion";
 
 const ProjectsSection = async () => {
   await dbConnect();
@@ -9,31 +10,41 @@ const ProjectsSection = async () => {
   const dbProjects = await Project.find({}).sort({ createdAt: -1 }).lean();
   
   // Map MongoDB fields to the structure expected by the ProjectCard
-  const projects = dbProjects.map((p) => ({
+  const projects = dbProjects.map((p: any) => ({
     id: p._id.toString(),
     title: p.title,
     slug: p.slug,
     description: p.description,
-    image: p.images?.[0] || "/placeholder.jpg",
+    image: p.images?.[0] || "https://res.cloudinary.com/durgeshkumar/image/upload/v1771091150/finalsecond_t21tkd.png",
     technologies: p.technologies || [],
     live: p.liveLink,
     github: p.githubLink,
     category: p.category,
     tags: p.tags,
+    featured: p.isFeatured,
+    metrics: p.highlights || []
   }));
 
   return (
-    <section className="pt-24 md:pt-20 min-h-screen p-5 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-gray-800 dark:text-white">
-      <h1 className="text-3xl font-bold mb-8 text-center font-palyWrite">
-        Our Projects
-      </h1>
+    <section className="py-24 relative">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg">
+            A selection of my recent work, ranging from enterprise-grade backend systems 
+            to interactive full-stack applications.
+          </p>
+        </div>
 
-      <hr className="border-0 h-1 mb-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-pulse w-1/2 md:w-1/3 mx-auto" />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </section>
   );

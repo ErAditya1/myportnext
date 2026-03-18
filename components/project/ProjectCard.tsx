@@ -3,103 +3,85 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { HiExternalLink, HiCode, HiArrowNarrowRight } from "react-icons/hi";
 
 const ProjectCard = ({ project }: { project: any }) => {
   return (
     <motion.div
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.25 }}
-      className="group relative rounded-2xl overflow-hidden bg-white/70 dark:bg-gray-900/60 backdrop-blur-xl border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="group relative flex flex-col glass rounded-[2.5rem] overflow-hidden border border-gray-100 dark:border-white/5 shadow-xl hover:shadow-2xl transition-all duration-500"
     >
-      {/* FEATURED TAG */}
-      {project.featured && (
-        <span className="absolute top-3 left-3 z-20 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full shadow-md">
-          ★ Featured
-        </span>
-      )}
-
       {/* IMAGE */}
-      <div className="relative overflow-hidden">
+      <div className="relative h-60 overflow-hidden">
         <Image
           src={project.image}
           alt={project.title}
-          width={500}
-          height={260}
-          className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+          <div className="flex gap-3">
+             {project.live && (
+              <a href={project.live} target="_blank" className="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                <HiExternalLink className="text-xl" />
+              </a>
+            )}
+            {project.github && (
+              <a href={project.github} target="_blank" className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform border border-white/10">
+                <HiCode className="text-xl" />
+              </a>
+            )}
+          </div>
+        </div>
+        
+        {project.featured && (
+          <div className="absolute top-4 left-4 glass px-3 py-1 rounded-full border border-emerald-500/30">
+            <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">★ Featured</span>
+          </div>
+        )}
       </div>
 
       {/* CONTENT */}
-      <div className="p-5">
+      <div className="p-8 flex flex-col flex-grow">
+        <div className="mb-4">
+          <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-2 block">
+            {project.category || "Project"}
+          </span>
+          <h3 className="text-2xl font-bold dark:text-white group-hover:text-emerald-500 transition-colors">
+            {project.title}
+          </h3>
+        </div>
 
-        {/* TITLE */}
-        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-          {project.title}
-        </h2>
-
-        {/* PROBLEM / DESCRIPTION */}
-        <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">
+        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-2">
           {project.description}
         </p>
 
-        {/* METRICS — FAANG STYLE */}
-        {project.metrics && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            {project.metrics.map((metric: string, i: number) => (
-              <span
-                key={i}
-                className="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-md font-semibold"
-              >
-                {metric}
-              </span>
-            ))}
-          </div>
-        )}
-
         {/* TECH STACK */}
-        <div className="flex flex-wrap gap-2 mt-4">
-          {project.technologies.map((tech: string, index: number) => (
+        <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+          {project.technologies.slice(0, 4).map((tech: string, index: number) => (
             <span
               key={index}
-              className="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded-md font-semibold"
+              className="text-[10px] font-bold px-3 py-1 rounded-lg bg-gray-50 dark:bg-gray-800/50 text-gray-500 dark:text-gray-400 border border-gray-100 dark:border-white/5 uppercase tracking-tighter"
             >
               {tech}
             </span>
           ))}
-        </div>
-
-        {/* BUTTONS */}
-        <div className="flex gap-3 mt-5">
-
-          {project.live && (
-            <a
-              href={project.live}
-              target="_blank"
-              className="flex-1 text-center bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-lg text-sm font-semibold transition"
-            >
-              Live Demo
-            </a>
-          )}
-
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              className="flex-1 text-center border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 py-2 rounded-lg text-sm font-semibold transition"
-            >
-              Code
-            </a>
+          {project.technologies.length > 4 && (
+            <span className="text-[10px] font-bold text-gray-400">+{project.technologies.length - 4} More</span>
           )}
         </div>
 
-        {/* DETAILS LINK */}
-        <Link
-          href={`/projects/${project.slug || project.id}`}
-          className="block text-center mt-4 text-sm font-semibold text-sky-600 hover:underline"
-        >
-          View Case Study →
-        </Link>
-
+        <div className="pt-6 border-t border-gray-100 dark:border-white/5">
+          <Link
+            href={`/projects/${project.slug || project.id}`}
+            className="inline-flex items-center gap-2 font-bold text-sm text-gray-900 dark:text-white hover:text-emerald-500 transition-colors group/link"
+          >
+            Explore Case Study
+            <HiArrowNarrowRight className="group-hover/link:translate-x-2 transition-transform" />
+          </Link>
+        </div>
       </div>
     </motion.div>
   );

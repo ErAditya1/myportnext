@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { HiLightningBolt, HiChip, HiCloud, HiDatabase, HiCode, HiShieldCheck } from "react-icons/hi";
 
 const techSkills = [
-  { name: "ASP.NET Core", level: 92 },
-  { name: "React / Next.js", level: 90 },
-  { name: "Node.js", level: 87 },
-  { name: "SQL / MongoDB", level: 89 },
-  { name: "REST APIs", level: 93 },
-  { name: "System Design", level: 80 },
+  { name: "ASP.NET Core", level: 92, icon: <HiChip />, color: "text-emerald-500", bg: "bg-emerald-500/10" },
+  { name: "React / Next.js", level: 90, icon: <HiCode />, color: "text-sky-500", bg: "bg-sky-500/10" },
+  { name: "Node.js", level: 87, icon: <HiLightningBolt />, color: "text-yellow-500", bg: "bg-yellow-500/10" },
+  { name: "SQL / MongoDB", level: 89, icon: <HiDatabase />, color: "text-rose-500", bg: "bg-rose-500/10" },
+  { name: "REST APIs", level: 93, icon: <HiCloud />, color: "text-indigo-500", bg: "bg-indigo-500/10" },
+  { name: "System Design", level: 80, icon: <HiShieldCheck />, color: "text-amber-500", bg: "bg-amber-500/10" },
 ];
 
 const strengths = [
@@ -34,124 +35,102 @@ const strengths = [
   },
 ];
 
-const radius = 45;
-const circumference = 2 * Math.PI * radius;
-
 export default function SkillsSection() {
   return (
-    <section className="py-24 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+    <section className="py-24 relative overflow-hidden">
       
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-        {/* ========================= */}
-        {/* TECH SKILLS */}
-        {/* ========================= */}
-
-        <h2 className="text-4xl font-bold text-center mb-4">
-          Engineering Expertise
-        </h2>
-
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-16">
-          Technologies I use to build scalable, production-grade systems.
-        </p>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10 mb-28">
-
-          {techSkills.map((skill, i) => {
-            const offset =
-              circumference - (skill.level / 100) * circumference;
-
-            return (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.07 }}
-                className="backdrop-blur-lg bg-white/40 dark:bg-gray-900/40 rounded-2xl p-6 shadow-xl flex flex-col items-center"
-              >
-                <div className="relative w-28 h-28 mb-4">
-                  <svg className="-rotate-90" width="120" height="120">
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r={radius}
-                      stroke="currentColor"
-                      strokeWidth="8"
-                      fill="transparent"
-                      className="text-gray-300 dark:text-gray-700"
-                    />
-
-                    <motion.circle
-                      cx="60"
-                      cy="60"
-                      r={radius}
-                      stroke="url(#grad)"
-                      strokeWidth="8"
-                      fill="transparent"
-                      strokeLinecap="round"
-                      initial={{ strokeDashoffset: circumference }}
-                      whileInView={{ strokeDashoffset: offset }}
-                      transition={{ duration: 1.6 }}
-                      style={{
-                        strokeDasharray: circumference,
-                      }}
-                    />
-
-                    <defs>
-                      <linearGradient id="grad">
-                        <stop offset="0%" stopColor="#10b981" />
-                        <stop offset="100%" stopColor="#6366f1" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-
-                  <div className="absolute inset-0 flex items-center justify-center font-bold">
-                    {skill.level}%
-                  </div>
-                </div>
-
-                <h3 className="font-semibold text-center">
-                  {skill.name}
-                </h3>
-              </motion.div>
-            );
-          })}
+        {/* SECTION HEADER */}
+        <div className="text-center mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-extrabold mb-6"
+          >
+            Engineering <span className="text-gradient">Stacks</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="max-w-2xl mx-auto text-gray-600 dark:text-gray-400 text-lg"
+          >
+            High-performance technologies I leverage to build scalable, 
+            production-level digital systems.
+          </motion.p>
         </div>
 
-        {/* ========================= */}
+        {/* TECH SKILLS GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+          {techSkills.map((skill, i) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="glass p-8 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-xl relative group"
+            >
+              <div className={`w-16 h-16 rounded-2xl ${skill.bg} ${skill.color} flex items-center justify-center text-3xl mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300`}>
+                {skill.icon}
+              </div>
+              
+              <h3 className="text-xl font-bold mb-4 dark:text-white">{skill.name}</h3>
+              
+              {/* Progress Line */}
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm font-bold">
+                  <span className="text-gray-500">Proficiency</span>
+                  <span className={skill.color}>{skill.level}%</span>
+                </div>
+                <div className="h-2 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                    className={`h-full bg-gradient-to-r from-emerald-500 to-sky-500 rounded-full`}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
         {/* CORE STRENGTHS */}
-        {/* ========================= */}
-
-        <h2 className="text-4xl font-bold text-center mb-4">
-          Core Strengths
-        </h2>
-
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-16">
-          The qualities that make me a reliable engineer and strong team contributor.
-        </p>
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-extrabold mb-4"
+          >
+            Core <span className="text-gradient">Strengths</span>
+          </motion.h2>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-
           {strengths.map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.15 }}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.03 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl flex gap-4"
+              transition={{ delay: i * 0.1 }}
+              className="glass p-8 rounded-3xl border border-gray-100 dark:border-white/5 flex gap-6 items-start hover:bg-white/50 dark:hover:bg-gray-800/5 transition-colors"
             >
-              <div className="text-4xl">{item.icon}</div>
-
+              <div className="text-4xl bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl shadow-inner">
+                {item.icon}
+              </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="text-xl font-extrabold mb-2 dark:text-white">
                   {item.title}
                 </h3>
-
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
