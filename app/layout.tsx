@@ -175,10 +175,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AnalyticsTracker />
-          <Navbar />
+         
           {children}
           <SpeedInsights />
-          <Footer />
+         
         </ThemeProvider>
 
       </body>
